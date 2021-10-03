@@ -15,7 +15,7 @@ verfGroen("green");
 //2 argumenten in een function
 
 const verfMultiply = function(welkeMuur, color){
-    console.log("The " + welkeMuur + "wall has been painted " + color);
+    console.log("The " + welkeMuur + " wall has been painted " + color);
   };
 
 verfMultiply("south-east", "grey");
@@ -23,29 +23,35 @@ verfMultiply("south-east", "grey");
 verfMultiply("north", "orange");
 
 
-verfMultiply("orange", "north");
 
-//does the order of the arguments matter when calling the function? ja als je argumenten andersom draait komt het ook verkeerd. 
+//does the order of the arguments matter when calling the function? ja als je argumenten andersom draait komt het anders vermeld: The orange wall has been painted north
 
-//what happens if you switch them in the function definition? werkt niet meer, krijgt undefined
+const verfMultiply1 = function(welkeMuur, color){
+    console.log("The " + welkeMuur + " wall has been painted " + color);
+  };
 
-//what happens if you change the order of the arguments in the function definition and when calling the function? de volgorde veranderd
+verfMultiply1("grey", "south-east");
 
-// The order of the arguments matters
-paintWall3("yellow", "north"); // The yellow wall has been painted north
+verfMultiply1("orange", "north");
 
-// The order in the function definition also matters
-const paintWall4 = function(color, whichWall) {
-    console.log(`The ` + whichWall + ` wall has been painted ` + color); // String concatenation
-    // or
-    console.log(`The ${whichWall} wall has been painted ${color}`); // String interpolation
-};
-paintWall4("south-east", "purple"); // The purple wall has been painted south-east
+//what happens if you switch them in the function definition? ja als je welkeMuur en color andersom draait in function, krijg je ook het andersom
+const verfMultiply2 = function(color, welkeMuur){
+    console.log("The " + welkeMuur + " wall has been painted " + color);
+  };
 
-// If we change the order in the definition and the call we get a good result again
-const paintWall5 = function(color, whichWall) {
-    console.log(`The ` + whichWall + ` wall has been painted ` + color); // String concatenation
-    // or
-    console.log(`The ${whichWall} wall has been painted ${color}`); // String interpolation
-};
-paintWall5("blue", "west"); // The west wall has been painted blue
+verfMultiply2("south-east", "grey");
+
+verfMultiply2("north", "orange");
+
+
+
+//what happens if you change the order of the arguments in the function definition and when calling the function? de volgorde bljft hetzelfde want bij het uitvoeren van de functie ga je ook de juiste argument volgorde aanhouden
+const verfMultiply3= function(color, welkeMuur){
+    console.log("The " + welkeMuur + " wall has been painted " + color);
+  };
+
+verfMultiply3("grey", "south-east");
+
+verfMultiply3("orange", "north");
+
+
